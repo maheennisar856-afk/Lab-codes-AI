@@ -1,0 +1,24 @@
+class Power:
+    def __init__(self, x, n):
+        self.x = x
+        self.n = n
+
+    def pow(self):
+        result = 1
+        if self.n > 0:
+            for _ in range(self.n):
+                result *= self.x
+        elif self.n < 0:
+            for _ in range(-self.n):
+                result *= self.x
+            result = 1 / result  # handle negative exponent
+        # if n == 0, result stays 1
+        return result
+
+
+# Example usage
+x = float(input("Enter the base number (x): "))
+n = int(input("Enter the power (n): "))
+
+power = Power(x, n)
+print(f"{x} raised to the power {n} is:", power.pow())
